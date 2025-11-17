@@ -2,7 +2,8 @@ package ed.u2.sorting;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import ed.u2.sorting.SortingUtils;
+
+import static ed.u2.sorting.SortingUtils.HABILITAR_TRAZAS;
 
 public class SortingDemo {
 
@@ -30,91 +31,119 @@ public class SortingDemo {
     }
 
     public static void mostrarInsertionSort() {
+        // inicializar variables para evitar crear dos copias diferentes
+        int[] arrayA = SortingUtils.getDataSetA();
+        int[] arrayB = SortingUtils.getDataSetB();
+        int[] arrayC = SortingUtils.getDataSetC();
+        int[] arrayD = SortingUtils.getDataSetD();
+        int[] arrayE = SortingUtils.getDataSetE();
+        int[] arrayF = SortingUtils.getDataSetF();
+        int[] arrayG = SortingUtils.getDataSetG();
+
         System.out.print(SortingUtils.C_VERDE +
                 "\n| -------------------- Insertion Sort -------------------- |" +
                 SortingUtils.C_RESET);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set A: " + Arrays.toString(SortingUtils.getDataSetA()) + " ---------- |"
+                "\n| ---------- " + "Data Set A: " + Arrays.toString(arrayA) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetA());
+        InsertionSort.sort(arrayA, HABILITAR_TRAZAS);
+        System.out.println(SortingUtils.mostrarArregloFinal(arrayA));
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set B: " + Arrays.toString(SortingUtils.getDataSetB()) + " ---------- |"
+                "\n| ---------- " + "Data Set B: " + Arrays.toString(arrayB) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetB());
+        InsertionSort.sort(arrayB, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set C: " + Arrays.toString(SortingUtils.getDataSetC()) + " ---------- |"
+                "\n| ---------- " + "Data Set C: " + Arrays.toString(arrayC) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetC());
+        InsertionSort.sort(arrayC, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set D: " + Arrays.toString(SortingUtils.getDataSetD()) + " ---------- |"
+                "\n| ---------- " + "Data Set D: " + Arrays.toString(arrayD) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetD());
+        InsertionSort.sort(arrayD, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set E: " + Arrays.toString(SortingUtils.getDataSetE()) + " ---------- |"
+                "\n| ---------- " + "Data Set E: " + Arrays.toString(arrayE) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetE());
+        InsertionSort.sort(arrayE, HABILITAR_TRAZAS);
 
         // Caso borde 1:
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "> CB: Data Set F: " + Arrays.toString(SortingUtils.getDataSetF()) + " ---------- |"
+                "\n| ---------- " + "> CB: Data Set F: " + Arrays.toString(arrayF) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetF());
+        InsertionSort.sort(arrayF, HABILITAR_TRAZAS);
         // caso borde 2:
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "> CB: Data Set G: " + Arrays.toString(SortingUtils.getDataSetG()) + " ---------- |"
+                "\n| ---------- " + "> CB: Data Set G: " + Arrays.toString(arrayG) + " ---------- |"
                 + SortingUtils.C_RESET);
-        InsertionSort.sort(SortingUtils.getDataSetG());
+        InsertionSort.sort(arrayG, HABILITAR_TRAZAS);
     }
 
     public static void mostrarSelectionSort() {
+        // inicializar variables para evitar crear dos copias diferentes
+        int[] arrayA = SortingUtils.getDataSetA();
+        int[] arrayB = SortingUtils.getDataSetB();
+        int[] arrayC = SortingUtils.getDataSetC();
+        int[] arrayD = SortingUtils.getDataSetD();
+        int[] arrayE = SortingUtils.getDataSetE();
+        int[] arrayF = SortingUtils.getDataSetF();
+        int[] arrayG = SortingUtils.getDataSetG();
+
         System.out.print(SortingUtils.C_VERDE +
                 "\n| -------------------- Selection Sort -------------------- |" +
                 SortingUtils.C_RESET);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set A: " + Arrays.toString(SortingUtils.getDataSetA()) + " ---------- |"
+                "\n| ---------- " + "Data Set A: " + Arrays.toString(arrayA) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetA());
+        SelectionSort.sort(arrayA, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set B: " + Arrays.toString(SortingUtils.getDataSetB()) + " ---------- |"
+                "\n| ---------- " + "Data Set B: " + Arrays.toString(arrayB) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetB());
+        SelectionSort.sort(arrayB, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set C: " + Arrays.toString(SortingUtils.getDataSetC()) + " ---------- |"
+                "\n| ---------- " + "Data Set C: " + Arrays.toString(arrayC) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetC());
+        SelectionSort.sort(arrayC, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set D: " + Arrays.toString(SortingUtils.getDataSetD()) + " ---------- |"
+                "\n| ---------- " + "Data Set D: " + Arrays.toString(arrayD) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetD());
+        SelectionSort.sort(arrayD, HABILITAR_TRAZAS);
 
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "Data Set E: " + Arrays.toString(SortingUtils.getDataSetE()) + " ---------- |"
+                "\n| ---------- " + "Data Set E: " + Arrays.toString(arrayE) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetE());
+        SelectionSort.sort(arrayE, HABILITAR_TRAZAS);
 
         // Caso borde CB 1:
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "> CB: Data Set F: " + Arrays.toString(SortingUtils.getDataSetF()) + " ---------- |"
+                "\n| ---------- " + "> CB: Data Set F: " + Arrays.toString(arrayF) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetF());
+        SelectionSort.sort(arrayF, HABILITAR_TRAZAS);
         // caso borde CB 2:
         System.out.println(SortingUtils.C_AMARILLO +
-                "\n| ---------- " + "> CB: Data Set F: " + Arrays.toString(SortingUtils.getDataSetG()) + " ---------- |"
+                "\n| ---------- " + "> CB: Data Set F: " + Arrays.toString(arrayG) + " ---------- |"
                 + SortingUtils.C_RESET);
-        SelectionSort.sort(SortingUtils.getDataSetG());
+        SelectionSort.sort(arrayG, HABILITAR_TRAZAS);
 
     }
 
     public static void mostrarBubbleSort() {
+        // inicializar variables para evitar crear dos copias diferentes
+        int[] arrayA = SortingUtils.getDataSetA();
+        int[] arrayB = SortingUtils.getDataSetB();
+        int[] arrayC = SortingUtils.getDataSetC();
+        int[] arrayD = SortingUtils.getDataSetD();
+        int[] arrayE = SortingUtils.getDataSetE();
+        int[] arrayF = SortingUtils.getDataSetF();
+        int[] arrayG = SortingUtils.getDataSetG();
+
 
     }
 
