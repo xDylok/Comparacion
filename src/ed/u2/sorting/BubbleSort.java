@@ -1,64 +1,49 @@
 package ed.u2.sorting;
-
 import java.util.Arrays;
 
-// Ordenamiento burbuja: compara entre dos elementos de un array
+// algoritmo generico de BubbleSort
 public final class BubbleSort {
-    public static void sort(int[] arreglo) {
-        sort(arreglo, false);
-    }
 
     public static SortContadores sort(int[] arreglo, boolean trace) {
+        // no implementado
+        return null;
+    }
+
+    // metodo de ordenacion generico
+    // <T extends Comparable<T>>: restriccion que asegura que los obj sepan compararse entre ellos
+    public static <T extends Comparable<T>> SortContadores sort(T[] arreglo, boolean trace) {
+        // contadores
         long comparaciones = 0;
         long swaps = 0;
-
+        // cronometrar con nanoTime() para mejor precision
         long tiempoInicio = System.nanoTime();
-        int nro = arreglo.length;
-        // si el array esta vacio o tiene un elemento, no ordena nada
-        if (nro < 2) {
-            // muestra el arreglo vacio o de un elemento
-            return new SortContadores(System.nanoTime() - tiempoInicio, 0, 0);
-        }
-        //bucle externo, contrala el nro de pasadas, se ejecuta n-1 veces
-        for (int i = 0; i < arreglo.length; i++) {
-            // reastrear si se hizo algun cambio: en esta pasada, se reinicia al inicio de cada pasada
+        int n = arreglo.length;
+        // caso borde: si el array es muy pequeño, no se ordena nada, retornando tiempo 0
+        if (n < 2) return new SortContadores(0, 0, 0);
+        // bucle externo que controla las pasadas
+        for (int i = 0; i < n - 1; i++) {
+            // bandera para corte temprano
             boolean swapped = false;
-
-            // bucle interno: hace comparaciones e intercambios, mueve el elemento mas grande hasta el final del array
-            for (int j = 0; j < nro - i - 1; j++) {
-                comparaciones++;
-                // compara elementos juntos
-                if (arreglo[j] > arreglo[j + 1]) {
-                    // si estan mal arreglados, se intercambian
-                    comparaciones++;
-                    int temp = arreglo[j];
+            // bucle interno: intercambia el elemento mayor hasta el final
+            // ignora los ultimos "i" elementos ya ordenados
+            for (int j = 0; j < n - 1 - i; j++) {
+                comparaciones++; // cuenta cada comparacion hecha
+                // uso de .compareTo ya que funciona con obj
+                // si el resultado es mayor a 0 significa que arreglo[j] es mayor que arreglo[j+1]
+                if (arreglo[j].compareTo(arreglo[j + 1]) > 0) {
+                    T temp = arreglo[j];
                     arreglo[j] = arreglo[j + 1];
                     arreglo[j + 1] = temp;
-                    swaps++;
-                    swapped = true; // marca si hubo un intercambio
-                    if (trace) {
-                        System.out.println(SortingUtils.C_ROJO + "\t> SWAP: " + SortingUtils.C_RESET + arreglo[j + 1] + " <-> " + arreglo[j] +
-                                " | " + SortingUtils.C_CELESTE + Arrays.toString(arreglo) + SortingUtils.C_RESET +
-                                " | " + SortingUtils.C_VERDE + " Contador de comparaciones: " + SortingUtils.C_CELESTE + comparaciones +
-                                SortingUtils.C_RESET);
-                    }
+                    swapped = true; // marca que hubo cambio para evitar corte temprano
+                    swaps++; // cuenta el intercambio
                 }
             }
-            //si swapped es falso, no hubo intercambios, el array ya esta ordenado
-            if (!swapped) {
-                if (trace) {
-                    System.out.println(SortingUtils.C_VERDE +
-                            "Corte Temprano: no hubo intercambios. Array ordenado." +
-                            SortingUtils.C_RESET);
-                }
-                break; // rompe bucle externo
-            }
+            // si se termina con una pasada completa sin hacer swaps, el array esta terminado
+            if (!swapped) break;
         }
+        // detiene el cronometro
         long tiempoFinal = System.nanoTime();
-        if (trace) {
-            // muestra el arreglo ordenado
-            System.out.print(SortingUtils.mostrarArregloFinal(arreglo));
-        }
-        return new SortContadores(tiempoFinal-tiempoInicio, comparaciones, swaps);
+        // retorna el obj con los datos
+        return new SortContadores(tiempoFinal - tiempoInicio, comparaciones, swaps);
     }
 }

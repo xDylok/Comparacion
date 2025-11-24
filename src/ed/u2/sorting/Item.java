@@ -1,5 +1,5 @@
 package ed.u2.sorting;
-
+// mdoelo de datyos para dataset inventario, se ordena alfabeticamente por stock
 public class Item implements Comparable<Item> {
     public String id;
     public String insumo;

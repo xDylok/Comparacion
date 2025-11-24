@@ -1,5 +1,5 @@
 package ed.u2.sorting;
-
+// mdoelo de datyos para dataset citas medicas, se ordena cronologicamente por fechaHora
 import java.time.LocalDateTime;
 
 public class Cita implements Comparable<Cita> {

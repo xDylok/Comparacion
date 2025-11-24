@@ -1,5 +1,5 @@
 package ed.u2.sorting;
-
+// mdoelo de datyos para dataset pacientes, se ordena alfabeticamente por el apellido
 public class Paciente implements Comparable<Paciente> {
     public String id;
     public String apellido;

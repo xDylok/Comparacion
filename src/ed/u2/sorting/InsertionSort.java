@@ -1,49 +1,39 @@
 package ed.u2.sorting;
-
 import java.util.Arrays;
 
+// algoritmo generico de InsertionSort
 public final class InsertionSort {
-    // Firma estandar
-    public static void sort(int[] arreglo) {
-        // llama al metodo principal, habilitando o deshabilitando las trazas
-        sort(arreglo, false);
-    }
-    // Metodo de ordenamiento sobrecargado, permite imprimir trazas
-    public static SortContadores sort(int[] arreglo, boolean trace) {
+    // ordena un array generico
+    public static <T extends Comparable<T>> SortContadores sort(T[] arreglo, boolean trace) {
+        // inicializacion de contadores
         long comparaciones = 0;
         long swaps = 0;
-
+        // inicio de medicion de tiempo en ns
         long tiempoInicio = System.nanoTime();
-        // recorre el array desde el segundo elemento
+        // bucle principal, empieza desde el segundo elemento
         for (int i = 1; i < arreglo.length; i++) {
-            int aux = arreglo[i]; // aux = se inserta la sublista ordenada
-            int pos = i - 1; // apunta al ultimo elemento de la sublista ordenada (izquierda de << i >>)
-            /*
-            * se ejecuta mientras:
-            * 1. no se salga del arreglo por la izquierda pos >= 0
-            * 2. el elemento de la lista ordenada (sublista izquierda) sea mayor que el elemento a insertar (aux)
-            */
-            while (pos >= 0 && arreglo[pos] > aux) {
-                comparaciones++;
-
-                if (arreglo[pos] > aux) {
+            T aux = arreglo[i]; // elemento a instertar
+            int pos = i - 1; // indice del elemento anterior
+            // bucle interno: mueve elementos mayores hacia la derecha
+            while (pos >= 0) {
+                comparaciones++;// cuenta cada comparacion hecha
+                // uso de .compareTo ya que funciona con obj
+                // si el resultado es mayor a 0 significa que arreglo[j] es mayor que arreglo[j+1]
+                if (arreglo[pos].compareTo(aux) > 0) {
                     arreglo[pos + 1] = arreglo[pos];
                     pos--;
-                    swaps++; // Contamos el desplazamiento
+                    swaps++; //
                 } else {
-                    // La comparación se hizo, pero dio falso. Salimos.
+                    // si el elemento no es mayor, se ecnontro la posicion correcta, rompe el bucle
                     break;
                 }
             }
-            // cuando while termina, se asigna la posicion correcta, insertando el elemento aux
+            // inserta el elemento "aux" en la posicion ordenada
             arreglo[pos + 1] = aux;
         }
+        // finaliza la medicion de tiempo
         long tiempoFinal = System.nanoTime();
-
-        if (trace) {
-            // muestra el arreglo ordenado
-            System.out.print(SortingUtils.mostrarArregloFinal(arreglo));
-        }
-        return new SortContadores(tiempoFinal-tiempoInicio, comparaciones, swaps);
+        // retorna el conteo W
+        return new SortContadores(tiempoFinal - tiempoInicio, comparaciones, swaps);
     }
 }

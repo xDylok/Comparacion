@@ -32,8 +32,6 @@ public class SortingUtils {
         return array;
     }
 
-    // Taller 6:
-
 
     // mostrar arreglo:
     public static String mostrarArregloFinal(int[] arreglo){
