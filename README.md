@@ -42,12 +42,21 @@ datasets con semilla fija (42).
 | **BubbleSort** | Citas_100 (Aleatorio) | 100 | 4,922 | 2,148 | 257,800 |
 | **SelectionSort** | Citas_100 (Aleatorio) | 100 | 4,950 | 94 | 167,700 |
 | **InsertionSort** | Citas_100 (Aleatorio) | 100 | 2,245 | 2,148 | 93,400 |
+---
+| Algoritmo | Dataset (Tipo) | N | Comparaciones | Swaps | Tiempo (ns) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | **BubbleSort** | Citas_CasiOrd (Casi Ord) | 100 | 4,170 | 243 | 64,900 |
 | **SelectionSort** | Citas_CasiOrd (Casi Ord) | 100 | 4,950 | 5 | 56,300 |
 | **InsertionSort** | Citas_CasiOrd (Casi Ord) | 100 | **342** | 243 | **17,900** |
+---
+| Algoritmo | Dataset (Tipo) | N | Comparaciones | Swaps | Tiempo (ns) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | **BubbleSort** | Pacientes_500 (Duplicados) | 500 | 124,579 | 60,337 | 2,223,100 |
 | **SelectionSort** | Pacientes_500 (Duplicados) | 500 | 124,750 | **490** | 1,081,500 |
 | **InsertionSort** | Pacientes_500 (Duplicados) | 500 | 60,829 | 60,337 | 660,700 |
+---
+| Algoritmo | Dataset (Tipo) | N | Comparaciones | Swaps | Tiempo (ns) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | **BubbleSort** | Inventario_Inv (Inverso) | 500 | 124,750 | 124,750 | 743,900 |
 | **SelectionSort** | Inventario_Inv (Inverso) | 500 | 124,750 | 250 | 510,400 |
 | **InsertionSort** | Inventario_Inv (Inverso) | 500 | 124,750 | 124,750 | 5,433,800 |
